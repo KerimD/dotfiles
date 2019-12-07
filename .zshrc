@@ -25,5 +25,5 @@ alias sp="sudo pacman"
 alias c="clear"
 alias py="python3"
 alias google="google-chrome-stable"
-alias ls='ls --color=auto'
-alias config='/usr/bin/git --git-dir=/home/deniz/dotfiles --work-tree=/home/deniz'
+alias config="/usr/bin/git --git-dir=/home/deniz/dotfiles --work-tree=/home/deniz"
+alias ls="ls -rv --color --group-directories-first"
