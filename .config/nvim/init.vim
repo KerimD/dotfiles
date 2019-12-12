@@ -5,6 +5,9 @@
 "  \ V /| | | | | | | | | (__
 "   \_/ |_|_| |_| |_|_|  \___|
 
+  " must be set before using <Leader> in keybindings
+  let mapleader="\<Space>"
+
 " -- Plugins -------------------------------------------------------------------
 
   call plug#begin()
@@ -14,12 +17,11 @@
 
   " for styling
   Plug 'dracula/vim', { 'as': 'dracula' }
-  "Plug 'Yggdroot/indentLine'
 
   " for language syntax highlighting
   Plug 'pangloss/vim-javascript',     { 'for': ['javascript'] }
   Plug 'leafgarland/typescript-vim',  { 'for': ['typescript'] }
-  Plug 'peitalin/vim-jsx-typescript', { 'for': ['javascript.jsx', 'typescript.tsx'] }
+  Plug 'peitalin/vim-jsx-typescript', { 'for': ['typescript.tsx'] }
 
   " nerdtree
   Plug 'scrooloose/nerdtree'
@@ -28,24 +30,13 @@
 
 " -- Plugin Settings -----------------------------------------------------------
 
-  " if hidden is not set, TextEdit might fail.
-  set hidden
-
-  " Some servers have issues with backup files
-  set nobackup
-  set nowritebackup
-
-  " treat jsx files as tsx files
-  autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
-
-  " binding for nerdtree
-  map <C-n> :NERDTreeToggle<CR>
+  " turns on Filetype detection, filetype pligins, indent files
+  filetype plugin indent on
 
 " -- Keybindings ---------------------------------------------------------------
 
-  " changing mapleader from "\\"
-  " must be set before using <Leader> in following bindings
-  let mapleader="\<Space>"
+  " binding for nerdtree
+  nmap <C-n> :NERDTreeToggle<CR>
 
   nnoremap <Leader>reload :source /home/deniz/.config/nvim/init.vim<CR>
   vnoremap <Leader>copy "+y
@@ -75,84 +66,45 @@
   " also you can do fuzzy search *.py findes all py files
   set wildmenu
 
-  " now :cd into a directory with autocomplete and :find <file> with
-  " autocomplete. check buffer with :ls and switch with :b <file>
-
   " https://www.reddit.com/r/vim/wiki/tabstop
   set tabstop=8
   set softtabstop=2
   set shiftwidth=2
+  set expandtab             " use spaces instead of tabs
+  set smarttab
 
-  " use spaces instead of tabs
-  set expandtab
-
-  " no wrap
   set nowrap
-
-  " lines of history to remember
-  set history=500
-
-  " open vertical split to right
-  set splitbelow splitright
-
-  " set relative number
-  set number relativenumber
-
-  " allow mouse in all modes
-  set mouse=a
-
-  " turns on Filetype detection, filetype pligins, indent files
-  filetype plugin indent on
-
-  " functions completion
-  set omnifunc=syntaxcomplete#Complete
+  set textwidth=80          " autowrap after 80 chars
+  set history=500           " lines of history to remember
+  set splitbelow splitright " open vertical split to right
+  set mouse=a               " allow mouse in all modes
 
 " -- Auto Commands -------------------------------------------------------------
 
   " remove trailling whitespace on save
   autocmd BufWritePre * %s/\s\+$//e
 
+  " set filetype for tsx and jsx files to both be typescript.tsx
+  autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
+
 " -- Appearance ----------------------------------------------------------------
 
-  " enable 256 color
-  set t_Co=256
-
-  " general scheme
-  color dracula
-
-  " to fix dracula theme colors
-  set termguicolors
-
-  " enables colors for syntax
-  syntax on
-
-  " show line at 81 chars
-  set colorcolumn=81
-
-  " autowrap after 80 chars
-  set textwidth=80
-
-  " show line numbers
-  set number
-
-  " status bar only shows when more buffers are open. options = 0, 1, 2
-  set laststatus=1
+  set t_Co=256       " enable 256 color
+  color dracula      " dracula color scheme
+  set termguicolors  " to fix dracula theme colors
+  syntax enable      " enables colors for syntax
+  set colorcolumn=81 " show line at 81 chars
+  set laststatus=1   " status bar only shows when more buffers are open
+  set number relativenumber
 
 " -- No Clue -------------------------------------------------------------------
 
   set nocursorline
+  set hidden
 
 " -- Mega Usefull --------------------------------------------------------------
-
-  " autocomplete is ^n or ^p
-  " for help, :help ins-completion
-  " ^x^f is for file completion
 
   " for like quick selecting a chunk of code see
   " :help object-motions
   " also mega haxs
   " :help object-select
-
-  " also ctags with ^] or ^Click
-  " basically tag jumping
-
