@@ -49,6 +49,7 @@ blue        = #1e88e5
 sky-blue    = #40e0d0
 purple      = #800080
 light-purpl = #b19cd9
+magenta     = #FF00FF
 
 ;whatever colors
 pink        = #d81b60
@@ -79,7 +80,7 @@ font-1 = "Font Awesome 5 Free Solid:style=Solid:size=12;3"
 
 modules-left = search ewmh google
 modules-center =
-modules-right = cpu audio battery wlan date power
+modules-right = cpu backlight audio battery wlan date power
 
 [module/search]
 type = custom/text
@@ -120,13 +121,18 @@ type = internal/cpu
 interval = 2
 label = %{F#1e88e5} %{F-}%percentage%%
 
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+label = %{F#ffff00} %{F-}%percentage%%
+
 [module/audio]
 type = internal/pulseaudio
 sink = alsa_output.pci-0000_00_1f.3.analog-stereo
 
-label-volume = %{F#b19cd9} %{F-}%percentage%%
+label-volume = %{F#FF00FF} %{F-}%percentage%%
 label-muted = 
-label-muted-foreground = ${color.light-purpl}
+label-muted-foreground = ${color.magenta}
 
 click-left = pavucontrol &
 click-right = exec pavucontrol &
@@ -160,8 +166,8 @@ label-disconnected-underline = ${color.red}
 [module/date]
 type = internal/date
 interval = 30
-time = %{F#ffff00} %{F-}%H:%M
-time-alt = %{F#ffff00} %{F-}%Y-%m-%d%
+time = %{F#ffc0cb} %{F-}%H:%M
+time-alt = %{F#ffc0cb} %{F-}%Y-%m-%d%
 label = %time%
 
 [module/power]
