@@ -35,6 +35,12 @@ wg7 = #757575
 wg8 = #616161
 wg9 = #424242
 
+;google colors
+g-blue = #4285F4
+g-red = #DB44s7
+g-yellow = #F4B400
+g-green = #0F9D58
+
 ;Deniz Approved
 red         = #FF0000
 yellow      = #ffff00
@@ -71,7 +77,7 @@ foreground = ${color.fg}
 font-0 = "Fantasque Sans Mono:style=Regular:size=12;3"
 font-1 = "Font Awesome 5 Free Solid:style=Solid:size=12;3"
 
-modules-left = search ewmh
+modules-left = search ewmh google
 modules-center =
 modules-right = cpu audio battery wlan date power
 
@@ -103,6 +109,11 @@ label-urgent-padding = 1
 
 label-empty = 
 label-empty-padding = 1
+
+[module/google]
+type = custom/text
+content = %{F#4285F4}G%{F-}%{F#DB4437}o%{F-}%{F#F4B400}o%{F-}%{F#4285F4}g%{F-}%{F#0F9D58}l%{F-}%{F#DB4437}e%{F-}
+click-left = google-chrome-stable &
 
 [module/cpu]
 type = internal/cpu
