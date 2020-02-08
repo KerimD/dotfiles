@@ -137,7 +137,7 @@
   set shortmess+=c
 
   " always show signcolumns
-  set signcolumn=yes
+  set signcolumn=auto
 
   " Use tab for trigger completion with characters ahead and navigate.
   " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -305,10 +305,13 @@
 " autocmd [group] {events} {file_pattern} [++nested] {command}
 
   " refresh polybar
-  autocmd BufWritePost top.ini !$HOME/.config/polybar/reset.sh
+  " autocmd BufWritePost testBar.ini !$HOME/.config/polybar/scripts/testBar.sh
 
   " remove trailling whitespace on save
-  autocmd BufWritePre * %s/\s\+$//e
+  " autocmd BufWritePre * %s/\s\+$//e
+
+  " set config files to dosini filetype
+  autocmd BufReadPost config set filetype=dosini
 
   " set filetype for tsx and jsx files to both be typescript.tsx
   autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
