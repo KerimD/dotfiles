@@ -80,7 +80,7 @@ font-1 = "Font Awesome 5 Free Solid:style=Solid:size=12;3"
 
 modules-left = ewmh google
 modules-center = poop
-modules-right = cpu backlight audio battery wlan date power
+modules-right = temp cpu backlight audio battery wlan date power
 
 [module/search]
 type = custom/text
@@ -120,6 +120,17 @@ click-left = google-chrome-stable &
 type = custom/text
 content = 
 content-foreground = ${color.brown}
+
+[module/temp]
+type = internal/temperature
+interval = 3
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input
+
+label = %{F#FF4500} %{F-}%temperature-c%
+format-warn-padding = 1
+label-warn =  %temperature-c%
+label-warn-background = #FF4500
+label-warn-padding = 1
 
 [module/cpu]
 type = internal/cpu
