@@ -49,10 +49,10 @@
 # default workspaces
 # for_window [class="^.*"]
 # for_window [class="Spotify"] move to workspace $ws10
-  for_window [class="Nm-connection-editor"] floating enable, resize set 300 350, move position 1620 30, sticky enable
-  for_window [class="Pavucontrol"] floating enable, resize set 600 350, move position 1320 30, sticky enable
-  for_window [class="albert"] floating enable
-  for_window [class="Org.gnome.Nautilus"] floating enable
+  for_window [class="Nm-connection-editor"] floating enable, move position center
+  for_window [class="Pavucontrol"] floating enable, resize set 590 340, move position 1330 30, sticky enable
+  for_window [class="albert"] floating enable, move position center
+  for_window [class="Org.gnome.Nautilus"] floating enable, move position center
 
 # -- Keybindings -- #
 

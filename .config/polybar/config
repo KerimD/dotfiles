@@ -124,7 +124,7 @@ content-foreground = ${color.brown}
 [module/temp]
 type = internal/temperature
 interval = 3
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input
 
 label = %{F#FF4500} %{F-}%temperature-c%
 format-warn-padding = 1
@@ -173,11 +173,10 @@ label-font = 2
 interface = wlp2s0
 interval = 3.0
 
-format-connected-prefix = 
-format-connected-prefix-foreground = ${color.sky-blue}
-label-connected = %{A1:nm-connection-editor:} %essid%%{A}
-label-disconnected = %ifname% dc
+label-connected = %{A1:nm-connection-editor:}%{F#40e0d0} %{F-}%essid%%{A}
+label-disconnected = %{A1:nm-connection-editor:}%{F#40e0d0} %{F-}%ifname%{A}
 label-disconnected-underline = ${color.red}
+label-disconnected-overline = ${color.red}
 
 [module/date]
 type = internal/date
@@ -193,18 +192,17 @@ label-font = 2
 menu-0-0 = 
 menu-0-0-exec = logout
 menu-0-0-foreground = ${color.g-green}
-menu-0-0-padding = 1
+menu-0-0-padding-right = 1
 menu-0-1 = 
 menu-0-1-exec = reboot
 menu-0-1-foreground = ${color.g-blue}
-menu-0-1-padding = 1
+menu-0-1-padding-right = 1
 menu-0-2 = 
 menu-0-2-exec = poweroff
 menu-0-2-foreground = ${color.orange}
-menu-0-2-padding = 1
 
 label-open = 
 label-open-foreground = ${color.orange}
 label-close = 
-label-close-padding = 1
+label-close-padding-right = 2
 
