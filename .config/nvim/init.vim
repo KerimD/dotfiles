@@ -261,11 +261,11 @@
   noremap Y y$
 
   " put the other side
-  imap ( ()<Esc>i
-  imap { {}<Esc>i
-  imap [ []<Esc>i
-  imap " ""<Esc>i
-  imap < <><Esc>i
+  inoremap { ()<Esc>i
+  inoremap {}<Esc>i
+  inoremap [ []<Esc>i
+  inoremap " ""<Esc>i
+  inoremap < <><Esc>i
 
   nnoremap <Leader>reload :source /home/deniz/.config/nvim/init.vim<CR>
   vnoremap <Leader>copy "+y
