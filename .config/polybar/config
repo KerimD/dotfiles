@@ -182,7 +182,7 @@ label-disconnected-overline = ${color.red}
 type = internal/date
 interval = 30
 time = %{F#ffc0cb} %{F-}%H:%M
-time-alt = %{F#ffc0cb} %{F-}%A, %d/%m/%Y
+time-alt = %{F#ffc0cb} %{F-}%A, %m/%d/%Y
 label = %time%
 
 [module/power]
