@@ -258,6 +258,15 @@
   " binding for nerdtree
   nmap <C-n> :NERDTreeToggle<CR>
 
+  noremap Y y$
+
+  " put the other side
+  imap ( ()<Esc>i
+  imap { {}<Esc>i
+  imap [ []<Esc>i
+  imap " ""<Esc>i
+  imap < <><Esc>i
+
   nnoremap <Leader>reload :source /home/deniz/.config/nvim/init.vim<CR>
   vnoremap <Leader>copy "+y
   nnoremap <Leader>clog :read /home/deniz/Snippets/consolelog.txt<CR>f(li

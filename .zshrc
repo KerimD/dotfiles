@@ -23,7 +23,6 @@ HISTFILE=~/.cache/zsh
   alias sp="sudo pacman"
   alias c="clear"
   alias py="python3"
-  alias google="google-chrome-stable"
   alias config="/usr/bin/git --git-dir=/home/deniz/dotfiles --work-tree=/home/deniz"
   alias ls="ls -rvh --color --group-directories-first"
   alias start_gnome="XDG_SESSION_TYPE=wayland exec dbus-run-session gnome-session"
