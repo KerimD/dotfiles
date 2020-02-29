@@ -8,9 +8,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# Prompt
-PROMPT='[%F{green}%1~%f]$ '
-
 # History
 HISTSIZE=10000
 SAVEHIST=10000
@@ -25,11 +22,36 @@ HISTFILE=~/.cache/zsh
   alias py="python3"
   alias config="/usr/bin/git --git-dir=/home/deniz/dotfiles --work-tree=/home/deniz"
   alias ls="ls -rvh --color --group-directories-first"
+  alias ll="ls -l"
   alias start_gnome="XDG_SESSION_TYPE=wayland exec dbus-run-session gnome-session"
   alias diff="diff --ignore-space-change --side-by-side --ignore-case --ignore-blank-lines"
 
-# -- PATH --
+# -- PATH ----------------------------------------------------------------------
 
-export PATH="$HOME/bin:$PATH"
+  export PATH="$HOME/bin:$PATH"
+
+# Git Completion
+
+  zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
+  fpath=(~/.zsh $fpath)
+
+  autoload -Uz compinit && compinit
+
+# Syntax Highlighting and Autosuggestions
+
+  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Prompt with Git
+# Load version control information
+autoload -Uz vcs_info
+precmd() { vcs_info }
+
+# Format the vcs_info_msg_0_ variable
+zstyle ':vcs_info:git:*' formats ' on  %b'
+ 
+# Set up the prompt (with git branch name)
+setopt PROMPT_SUBST
+PROMPT='[%F{green}%1~%f${vcs_info_msg_0_}]$ '
 
 neofetch | lolcat

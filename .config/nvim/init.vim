@@ -8,6 +8,10 @@
   " must be set before using <Leader> in keybindings
   let mapleader="\<Space>"
 
+  " remove this dumbass key
+  nmap <F1> <nop>
+  imap <F1> <nop>
+
 " -- Plugins -------------------------------------------------------------------
 
   call plug#begin()
@@ -251,21 +255,14 @@
 
 " -- Keybindings ---------------------------------------------------------------
 
-  " remove CTRL+T and CTRL+W i'm moving this functionality to tmux
-  map <C-t> <Nop>
-  map <C-w> <Nop>
-
   " binding for nerdtree
   nmap <C-n> :NERDTreeToggle<CR>
 
   noremap Y y$
 
   " put the other side
-  inoremap ( ()<Esc>i
-  inoremap { {}<Esc>i
-  inoremap [ []<Esc>i
-  inoremap " ""<Esc>i
-  inoremap < <><Esc>i
+  " inoremap ( ()<Esc>i
+  " inoremap { {}<Esc>i
 
   nnoremap <Leader>reload :source /home/deniz/.config/nvim/init.vim<CR>
   vnoremap <Leader>copy "+y
@@ -309,6 +306,7 @@
   set history=500           " lines of history to remember
   set splitbelow splitright " open splits below and right
   set mouse=n               " disable mouse
+  set scrolloff=4           " show # lines while scrolling down
 
 " -- Auto Commands -------------------------------------------------------------
 " autocmd [group] {events} {file_pattern} [++nested] {command}
