@@ -28,7 +28,7 @@ HISTFILE=~/.cache/zsh
 
 # -- PATH ----------------------------------------------------------------------
 
-  export PATH="$HOME/bin:$PATH"
+  export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 
 # Git Completion
 
@@ -48,10 +48,11 @@ autoload -Uz vcs_info
 precmd() { vcs_info }
 
 # Format the vcs_info_msg_0_ variable
-zstyle ':vcs_info:git:*' formats ' on  %b'
+zstyle ':vcs_info:git:*' formats ' on %F{yellow} %b%f'
  
-# Set up the prompt (with git branch name)
+# idk
 setopt PROMPT_SUBST
-PROMPT='[%F{green}%1~%f${vcs_info_msg_0_}]$ '
+
+PROMPT='[%F{blue}%1~%f${vcs_info_msg_0_}]$ '
 
 neofetch | lolcat

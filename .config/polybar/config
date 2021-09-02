@@ -54,7 +54,6 @@ magenta     = #FF00FF
 brown       = #b5651d
 orange      = #FFA500
 
-
 ;whatever colors
 pink        = #d81b60
 deep-purple = #5e35b1
@@ -116,7 +115,7 @@ label-empty-padding = 1
 [module/google]
 type = custom/text
 content = %{F#4285F4}G%{F-}%{F#DB4437}o%{F-}%{F#F4B400}o%{F-}%{F#4285F4}g%{F-}%{F#0F9D58}l%{F-}%{F#DB4437}e%{F-}
-click-left = google-chrome-stable &
+click-left = chromium &
 
 [module/stinky]
 type = custom/text
@@ -198,7 +197,7 @@ format-connected-prefix-foreground = ${color.light-blue}
 label-connected = %{A1:nm-connection-editor:}%essid%%{A}
 format-disconnected-prefix = " "
 format-disconnected-prefix-foreground = ${color.light-blue}
-label-disconnected = %{A1:nm-connection-editor:}%ifname%{A}
+label-disconnected = %{A1:nm-connection-editor:}%ifname%%{A}
 label-disconnected-underline = ${color.red}
 label-disconnected-overline = ${color.red}
 

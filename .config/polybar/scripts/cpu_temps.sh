@@ -14,7 +14,7 @@ trap "toggle" USR1
 
 while true; do
 
-  # setting temps
+  # setting up temps
   temp_avg=`cat /sys/devices/platform/coretemp.0/hwmon/hwmon*/temp1_input`
   temp1=`cat /sys/devices/platform/coretemp.0/hwmon/hwmon*/temp2_input`
   temp2=`cat /sys/devices/platform/coretemp.0/hwmon/hwmon*/temp3_input`
@@ -27,7 +27,7 @@ while true; do
   temp3=$(( ${temp3} / 1000 ))
   temp4=$(( ${temp4} / 1000 ))
 
-  # setting icons
+  # setting up icons
   if [[ $temp_avg -gt 80 ]]; then
     temp_avg_icon="%{B#FF4500} ${icon_high}${temp_avg}°C %{B-}"
   else
